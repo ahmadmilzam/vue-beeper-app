@@ -1,0 +1,165 @@
+// ==========================================================================
+// Framework Main File
+// ==========================================================================
+//
+// This is an example framework manifest file. DO NOT MODIFY THIS FILE DIRECTLY.
+// Instead, copy and paste it into your own CSS directory and make additions,
+// extension, and modifications there.
+//
+// DO NOT EDIT DEFAULT VALUE DIRECTLY IN EACH FILES
+// IF YOU NEED TO CHANGE AND MODIFY THE VALUE,
+// YOU SHOULD REASSIGN / UNCOMMENT THE VARIABLES
+// BEFORE IMPORT THE RELEVANT FILES AND EDIT THE VALUE HERE.
+//
+
+@import "1-settings/settings.colors";
+
+//
+// Settings - global
+// ==========================================================================
+//
+// Global variables, site-wide settings, config switches, etc.
+//
+// These variables are framework variables, sourced from variables defined
+// above. Feel free to use these variables throughout your project, but do not
+// modify or reassign them.
+//
+$global-background-color: $color-sand;
+@import "1-settings/settings.global";
+
+
+
+
+//
+// Settings - Breakpoints
+// ==========================================================================
+//
+@import "1-settings/settings.responsive";
+
+
+
+
+//
+// Debuger
+// ==========================================================================
+//
+@import "1-settings/settings.debugger";
+
+
+
+
+//
+// Tools
+// ==========================================================================
+// Site-wide mixins and functions.
+//
+@import "2-tools/tools.font-size";
+@import "2-tools/tools.responsive";
+@import "2-tools/tools.rem";
+@import "2-tools/tools.math";
+@import "2-tools/tools.decimal";
+@import "2-tools/tools.brightness";
+@import "2-tools/tools.clearfix";
+@import "2-tools/tools.color-level";
+@import "2-tools/tools.commoncss";
+@import "2-tools/tools.timming-functions";
+@import "2-tools/tools.z-index";
+@import "2-tools/tools.triangle";
+
+
+
+
+//
+// Generic
+// ==========================================================================
+//
+//  Low-specificity, far-reaching rulesets (e.g. CSS resets)
+//
+@import "3-generic/generic.reset";
+@import "3-generic/generic.box-sizing";
+@import "3-generic/generic.shared";
+
+
+
+
+//
+// Elements
+// ==========================================================================
+//
+// Uncllassed HTML elements (eg. a{}, h1{}, img{} )
+//
+@import "4-elements/elements.page";
+@import "4-elements/elements.headings";
+@import "4-elements/elements.links";
+@import "4-elements/elements.images";
+@import "4-elements/elements.hr";
+
+
+
+
+//
+// Objects
+// ==========================================================================
+//
+// objects, abstractions, and design patterns
+// (e.g. .media {}, .button{}, .list{}).
+//
+@import "5-objects/objects.wrapper";
+$enable-layout--center: true;
+@import "5-objects/objects.layout";
+// @import "5-objects/objects.media";
+// @import "5-objects/objects.flag";
+// @import "5-objects/objects.list";
+// @import "5-objects/objects.box";
+// @import "5-objects/objects.ratio";
+// @import "5-objects/objects.split";
+
+
+
+
+//
+// COMPONENTS
+// ==========================================================================
+//
+// Discrete, complete chunks of UI (e.g. .carousel {}, .topbar{}).
+// This is the one layer that the framework doesn't get involved with.
+// So, import your own components here and do your magic!
+//
+$btn-height--large:             42px;
+$enable-btn--small:             true;
+$enable-btn--large:             true;
+$enable-btn--block:             true;
+$enable-btn--primary:           true;
+$enable-btn--success:           true;
+@import "6-components/components.example-buttons";
+@import "6-components/components.transitions-animations";
+@import "6-components/components.panel";
+@import "6-components/components.alert";
+@import "6-components/components.quote";
+@import "6-components/components.progress";
+@import "6-components/components.forms";
+@import "6-components/components.list-ui";
+@import "6-components/components.navbar";
+@import "6-components/components.dropdown";
+
+
+
+
+//
+// Utilities
+// ==========================================================================
+//
+// High-specificity, very explicit selectors.
+// Overrides and helper classes (e.g. .hidden {}).
+//
+@import "7-utilities/utilities.clearfix";
+@import "7-utilities/utilities.width";
+@import "7-utilities/utilities.float";
+@import "7-utilities/utilities.text-transform";
+@import "7-utilities/utilities.headings";
+@import "7-utilities/utilities.paragraphs";
+@import "7-utilities/utilities.alignment";
+@import "7-utilities/utilities.spacing";
+@import "7-utilities/utilities.visibility";
+// @import "7-utilities/utilities.print";
+@import "7-utilities/utilities.text";
