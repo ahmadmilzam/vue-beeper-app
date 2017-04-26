@@ -43,7 +43,7 @@
       </div>
       <div class="o-layout__item u-9of12 u-text-right u-padding-top--tiny">
         <div class="o-list o-list--inline u-text-gray">
-          <li class="o-list__item u-margin-right--small">
+          <li class="o-list__item u-margin-right--tiny">
             <span class="fa fa-calendar-o"></span>
             {{ beep.created_at | dateFormat}}
           </li>
