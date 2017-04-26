@@ -1,25 +1,27 @@
 <template>
-  <div class="o-layout">
-    <div class="o-layout__item">
-      <div class="c-panel">
-        <div class="c-panel__body">
-          <h1 class="u-h3">{{ title }}</h1>
-        </div>
-      </div>
-    </div>
-  </div>
+  <component :is="activeComponent"></component>
 </template>
 
 <script>
+  import BeepDash from '@/components/beep/BeepDash';
+  import BeepPublic from '@/components/beep/BeepPublic';
+
   export default {
     name: 'home',
     data() {
       return {
-        title: 'Homepage',
+        title: 'Public Home Page',
+        activeComponent: 'BeepPublic',
+        isLoggedIn: false,
       };
     },
+    components: {
+      BeepDash,
+      BeepPublic,
+    },
     created() {
-      window.document.title = this.title;
+      this.isLoggedIn = this.$store.state.auth.isLoggedIn;
+      this.activeComponent = this.isLoggedIn ? 'BeepDash' : 'BeepPublic';
     },
   };
 </script>

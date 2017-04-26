@@ -25,6 +25,14 @@ $alert-error-border-color:    color-level($color-pink, -2) !default;
 $alert-error-bg:              $color-pink--light !default;
 $alert-error-color:           $color-pink !default;
 
+$alert-success-close-color:   $color-green--dark !default;
+$alert-success-border-color:  $color-green--superdark !default;
+$alert-success-bg:            $color-green--superlight !default;
+$alert-success-color:         $color-green--dark !default;
+
+$enable-alert--error:         false !default;
+$enable-alert--success:       false !default;
+
 .c-alert {
   position: relative;
   display: block;
@@ -42,10 +50,20 @@ $alert-error-color:           $color-pink !default;
     margin-bottom: 0;
   }
 
-  &.c-alert--error {
-    background-color: $alert-error-bg;
-    color: $alert-error-color;
-    border-color: $alert-error-border-color;
+  @if ($enable-alert--error == true) {
+    &.c-alert--error {
+      background-color: $alert-error-bg;
+      color: $alert-error-color;
+      border-color: $alert-error-border-color;
+    }
+  }
+
+  @if ($enable-alert--success == true) {
+    &.c-alert--success {
+      background-color: $alert-success-bg;
+      color: $alert-success-color;
+      border-color: $alert-success-border-color;
+    }
   }
 }
 
@@ -69,8 +87,16 @@ $alert-error-color:           $color-pink !default;
   appearance: none;
   -webkit-appearance: none;
 
-  .c-alert--error & {
-    color: rgba($alert-error-close-color, .4);
+  @if ($enable-alert--error == true) {
+    .c-alert--error & {
+      color: rgba($alert-error-close-color, .4);
+    }
+  }
+
+  @if ($enable-alert--success == true) {
+    .c-alert--success & {
+      color: rgba($alert-success-close-color, .4);
+    }
   }
 }
 

@@ -13,6 +13,7 @@ $imported-global-settings: false !default;
 }
 
 $list-ui-border-color: $color-ash--light !default;
+$list-ui-bg-hover:     $color-sand--light !default;
 
 .c-list-ui {
   display: block;
@@ -31,11 +32,15 @@ $list-ui-border-color: $color-ash--light !default;
   transition: background-color .3s ease-out;
 
   &:hover {
-    background-color: $color-sand--dark;
+    background-color: $list-ui-bg-hover;
   }
 
   &.list-ui-move {
     transition: transform .3s ease-out;
+  }
+
+  &:last-child {
+    border-bottom: 0;
   }
 
   .c-list-ui--tiny & {
@@ -44,5 +49,9 @@ $list-ui-border-color: $color-ash--light !default;
 
   .c-list-ui--small & {
     padding: rem-calc($global-spacing-unit--small);
+  }
+
+  .c-list-ui--none & {
+    padding: 0;
   }
 }

@@ -1,0 +1,67 @@
+// ==========================================================================
+// User Avatar
+// ==========================================================================
+
+// Here we set a variable assuming that default and module settings
+// are not set globally. If they have been previously been defined,
+// the following variable will be overriden and will be set to `true`.
+$imported-global-settings: false !default;
+
+@if ($imported-global-settings == false) {
+  @warn "Oops! Have you included global settings files?";
+}
+
+// Variable(s)
+$avatar-border-radius: 50% !default;
+$avatar-border-width:  1px !default;
+$avatar-border-color:  $color-ash--light !default;
+
+$avatar-size:          36px !default; // Used in Seller's Page
+$avatar-size--small:   24px !default; // Used in Comments
+$avatar-size--large:   60px !default; // Used in Chats
+
+$enable-avatar--small: false !default;
+$enable-avatar--large: false !default;
+
+
+.c-avatar {
+  display: inline-block;
+  vertical-align: middle;
+
+  overflow: hidden;
+
+  width: rem-calc($avatar-size);
+  height: rem-calc($avatar-size);
+
+  border: $avatar-border-width solid $avatar-border-color;
+  border-radius: $avatar-border-radius;
+}
+
+.c-avatar__image {
+  display: block;
+
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+
+
+//
+// Size Variations
+// ==========================================================================
+
+@if ($enable-avatar--small == true) {
+  .c-avatar--small {
+    width: rem-calc($avatar-size--small);
+    height: rem-calc($avatar-size--small);
+  }
+}
+
+@if ($enable-avatar--large == true) {
+  .c-avatar--large {
+    width: rem-calc($avatar-size--large);
+    height: rem-calc($avatar-size--large);
+  }
+}

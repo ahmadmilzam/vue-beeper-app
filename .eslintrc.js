@@ -35,7 +35,8 @@ module.exports = {
     }],
     'global-require': 0,
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
-    'no-concole': process.env.NODE_ENV === 'production' ? 2 : 0,
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-concole': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-param-reassign': ['error', { props: false }],
   }
 }

@@ -10,7 +10,7 @@
 }
 
 .u-text-small {
-  font-size: rem-calc(12);
+  font-size: rem-calc(14);
 }
 
 .u-text-pink {
@@ -18,5 +18,21 @@
   &:hover,
   &:active {
     color: $color-pink !important;
+  }
+}
+
+.u-text-black {
+  &,
+  &:hover,
+  &:active {
+    color: $color-black !important;
+  }
+}
+
+.u-text-gray {
+  &,
+  &:hover,
+  &:active {
+    color: $color-ash--dark !important;
   }
 }
