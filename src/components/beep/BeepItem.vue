@@ -32,6 +32,7 @@
     <div class="o-layout">
       <div class="o-layout__item u-3of12">
         <button
+        @click="likeBeep"
           type="button"
           :class="{'c-btn--primary': beep.liked}"
           class="c-btn">
@@ -77,8 +78,28 @@
     },
     methods: {
       likeBeep() {
-        console.log('liked');
+        const { token } = this.$auth.getToken();
+        this.$http.patch(`beeps/${this.beep.id}/like`, null, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then(() => {
+          if (this.beep.liked) {
+            this.beep.liked = false;
+            this.beep.likes = this.beep.likes - 1;
+          } else {
+            this.beep.liked = true;
+            this.beep.likes = this.beep.likes + 1;
+          }
+        })
+        .catch((res) => {
+          console.log('toggle failed', res);
+        });
       },
+    },
+    mounted() {
+      // console.log('Beep Item', this.beep);
     },
   };
 </script>

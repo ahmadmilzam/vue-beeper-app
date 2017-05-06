@@ -1,12 +1,7 @@
 const AuthPlugin = {
   setToken(token, expiration) {
-    if (this.getToken()) {
-      localStorage.authToken = token;
-      localStorage.authTokenExpiration = expiration;
-    } else {
-      localStorage.setItem('authToken', token);
-      localStorage.setItem('authTokenExpiration', expiration);
-    }
+    localStorage.setItem('authToken', token);
+    localStorage.setItem('authTokenExpiration', expiration);
   },
   getToken() {
     const token = localStorage.getItem('authToken');
@@ -16,7 +11,7 @@ const AuthPlugin = {
       return null;
     }
 
-    if (Date.now > parseInt(expiration, 10)) {
+    if (Date.now() > parseInt(expiration, 10)) {
       this.destroyToken();
       this.destroyData();
       return null;

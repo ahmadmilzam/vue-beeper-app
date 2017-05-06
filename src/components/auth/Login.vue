@@ -24,17 +24,17 @@
               class="u-text-small u-text-pink">{{ errors.first('username') }}</span>
         </div>
         <div class="o-layout__item u-margin-bottom--small">
-          <label for="passowrd" class="c-label">Password</label>
+          <label for="password" class="c-label">Password</label>
           <input
             v-model.trim="formData.password"
             v-validate="'required'"
             :class="{'c-input': true, 'is-invalid': errors.has('password')}"
-            name="passowrd"
-            id="passowrd"
+            name="password"
+            id="password"
             type="password"></input>
             <span
-              v-show="errors.has('passowrd')"
-              class="u-text-small u-text-pink">{{ errors.first('passowrd') }}</span>
+              v-show="errors.has('password')"
+              class="u-text-small u-text-pink">{{ errors.first('password') }}</span>
         </div>
         <div class="o-layout__item u-margin-bottom--small">
           <button
@@ -87,8 +87,8 @@
         this.$auth.setToken(
           response.body.token,
           Date.now() + 14400000,
-          { username: this.formData.username },
         );
+        this.$auth.setUserData({ username: this.formData.username });
         this.$store.commit('auth/setLogin', true);
         if (referrer) {
           this.$router.push({ path: referrer });

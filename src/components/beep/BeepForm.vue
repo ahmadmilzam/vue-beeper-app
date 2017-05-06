@@ -101,18 +101,18 @@
     methods: {
       getUserInfo() {
         const userData = this.$auth.getUserData();
-        console.log(userData);
+        console.log('userdata', userData);
         // this.user =
         // console.log(userData, userData.username);
         this.$http.get(`users/${userData.username}`)
         .then(this.requestSuccess, this.requestFailed);
       },
       requestSuccess(res) {
-        console.log('req success', res);
+        // console.log('req success', res);
         this.user = res.body;
       },
-      requestFailed(res) {
-        console.log('req fail', res);
+      requestFailed() {
+        // console.log('req fail', res);
       },
       postBeep() {
         const { token } = this.$auth.getToken();
@@ -120,15 +120,15 @@
           Authorization: `Bearer ${token}`,
         } }).then(this.postSuccess, this.postFail);
       },
-      postSuccess(res) {
-        console.log('post beeps success', res);
+      postSuccess() {
+        // console.log('post beeps success', res);
         this.data.text = '';
         this.alertType = 'success';
         // this.alertMsg = response.body.errors.join(' ');
         this.showAlert = true;
       },
-      postFail(res) {
-        console.log('post beeps fail', res);
+      postFail() {
+        // console.log('post beeps fail', res);
         this.alertType = 'error';
         // this.alertMsg = response.body.errors.join(' ');
         this.showAlert = true;
